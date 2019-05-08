@@ -1,0 +1,38 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+                // Display a message in a debugging output section
+                // Create a section if one doesn't already exist
+                function debug(msg) {
+                    
+                    // Find the debug section
+                    var log = document.getElementById("debuglog");
+
+                    // If one doesn't exist yet, make one
+                    if (!log) {
+                        // Make a new div with an HTML id attr
+                        // then yeet it to the end of the HTML doc
+                        log = document.createElement("div");
+                        log.id = "debuglog";
+                        log.innerHTML = "<h1>Debug Log</h1>";
+                        document.body.appendChild(log);
+                    }
+                    
+                    // For generating a preformatted-text tag, <pre>
+                    var pre = document.createElement("pre");
+
+                    // Wrap the message, `msg` in a text node
+                    var text = document.createTextNode(msg);
+
+                    // Add `text` to the <pre> then add <pre> to the log
+                    pre.appendChild(text);
+                    log.appendChild(pre);
+                }
+                window.debug("This ***** is empty");
+        </script>
+    </body>
+
+</html>
+
+
